@@ -43,40 +43,37 @@ void quickSort(int arr[], int low, int high)
     } 
 } 
 
-// Should have one argument (x)
-int MAKESET(int parent[], int rank[], int x)
+// Should have one argument (x); need to change for data structure maybe you can do this
+int MAKESET(int x)
 {
-    std::unordered_set <int> vSet
+    // this should maybe be Graph.x.parent or x.parent; not sure
+    Graph.Vertex.parent = x;
+    Graph.Vertex.rank = 0;
 
-    parent[x] = x;
-    rank[x] = 0;
 }
 
-std::unordered_set <int> MAKESET(int x)
-{
-    std::unordered_set <int> vSET;
-    vSET.append(x);
-}
 
-// Should have one argument (x)
-void FIND(int parent[], int x)
+// Should have one argument (x); needs to be altered according to data structure
+void FIND(int x)
 {
-    if(parent[x] != x){
-        parent[x] = FIND(parent[x]);
-        return parent[x];
+    // same applied to this
+    if(Graph.Vertex[x].parent != x)
+    {
+        Graph.Vertex[x].parent = FIND(Graph.Vertex[x].parent);
+        return Graph.Vertex[x].parent;
     }
 }
 
-// Should have two arguments (x, y)
+// Should have two arguments (x, y); needs to be altered according to data stucture
 void LINK(x, y)
 {
-    if (rank[x] > rank[y]){
-        parent[y] = x;
+    if (Graph.Vertex[x].rank > Graph.Vertex[y].rank){
+        Graph.Vertex[y].parent = x;
     }
-    if (rank[x] == rank[y]){
-        rank[y]++;
+    if (Graph.Vertex[x].rank == Graph.Vertex[y].rank){
+        Graph.Vertex[y].rank++;
     }
-    parent[x] = y;
+    Graph.Vertex[x].parent = y;
     return (y);
 }
 
@@ -87,19 +84,22 @@ int UNION(x, y)
 
 void KRUSKAL(vector<vector<double> > G)
 {
-    std::unordered_set <int> vSet;
+    std::unordered_set <int> vSet; // set X; could be another data type since we are only returning a sum
 
-    EDGE = quickSort(EDGE, EDGE[0], EDGE[-1]);
-    for (int i = 0; i < sizeof(VERTEX); i++)
+    Graph.Edge.weight = sort(Graph.Edge.weight);
+    // not sure how to set up for loop in this case; maybe you can help
+    for (int i = 0; i < sizeof(Graph.Vertex); i++)
     {
-        MAKESET(VERTEX[i]);
+        MAKESET(Graph.Vertex[i].id);
     }
-    for (int i = 0; i < sizeof(EDGE); i++)
+    // same here, not sure how to set up for loop
+    for (int i = 0; i < sizeof(Graph.Edge); i++)
     {
-        if (FIND(EDGE[i][0]) != FIND(EDGE[i][1]))
+        if (FIND(Graph.Edges[i].u) != FIND(Graph.Edges[i].v))
         {
+            // add weight of corresponding edge to our running sum; this can be altered once we choose data structure to store
             vSet = vSet.insert(EDGE[i]);
-            UNION(EDGE[i][0], EDGE[i][1]);
+            UNION(Graph.Edges[i].u, Graph.Edges[i].v);
         }
     }
     return vSet;
