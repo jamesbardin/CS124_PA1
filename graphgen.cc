@@ -9,9 +9,12 @@
 #include <random>
 #include <unordered_set>
 #include <algorithm>
+#include <fstream>
+#include <chrono>
 
 using namespace std;
 
+// help with implementation from here https://www.geeksforgeeks.org/introduction-to-disjoint-set-data-structure-or-union-find-algorithm/
 class UnionFind {
 public:
     vector<int> parent, size;
@@ -95,13 +98,13 @@ float get_threshold(int n, int dim) {
         return (100.0)/(n-1);
     }
     else if (dim == 2) {
-        return 2.5*pow(n, -1.0/2.0);
+        return 9*pow(n, -1.0/2.0);
     }
     else if (dim == 3) {
-        return 3*pow(n, -1.0/3.0);
+        return 5*pow(n, -1.0/3.0);
     }
     else if (dim == 4) {
-        return 2.5*pow(n, -1.0/4.0);
+        return 2*pow(n, -1.0/4.0);
     }
     else {
         return NAN;
@@ -259,49 +262,73 @@ double kruskal_mst_weight(Graph& graph) {
 
 
 int main(int argc, char* argv[]) {
+    ofstream outfile;
+    outfile.open("data.txt", std::ios_base::app);
+
     int flag = atoi(argv[1]);
-    long long n = atoi(argv[2]);
+    int n = atoi(argv[2]);
     int num_trials = atoi(argv[3]);
     int dimension = atoi(argv[4]);
     double total_weight = 0;
-
+    int time = 0;
     switch (dimension) {
         case 0:
             for (int i = 0; i < num_trials; i++) {
+                auto start = std::chrono::high_resolution_clock::now();
                 Graph graph = generate_graph_0(n);
+                auto stop = std::chrono::high_resolution_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+                time += duration.count();
                 total_weight += kruskal_mst_weight(graph);
                 cout << " Summed Weight: " << total_weight << " " << endl;
             }
             cout << " Average Weight: " << total_weight/5.0 << " ";
+            outfile << "N: " << n << " | Dim: 0 | Avg Wt: " << total_weight/5.0 << " | Avg Time: " << time/5.0 << endl;
             break;
         case 2:
             for (int i = 0; i < num_trials; i++) {
+                auto start = std::chrono::high_resolution_clock::now();
                 Graph graph = generate_graph_2(n, 2);
+                auto stop = std::chrono::high_resolution_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+                time += duration.count();
                 total_weight += kruskal_mst_weight(graph);
                 cout << " Summed Weight: " << total_weight << " " << endl;
             }
             cout << " Average Weight: " << total_weight/5.0 << " ";
+            outfile << "N: " << n << " | Dim: 2 | Avg Wt: " << total_weight/5.0 << " | Avg Time: " << time/5.0 << endl;
             break;
         case 3:
             for (int i = 0; i < num_trials; i++) {
+                auto start = std::chrono::high_resolution_clock::now();
                 Graph graph = generate_graph_2(n, 3);
+                auto stop = std::chrono::high_resolution_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+                time += duration.count();
                 total_weight += kruskal_mst_weight(graph);
                 cout << " Summed Weight: " << total_weight << " " << endl;
             }
             cout << " Average Weight: " << total_weight/5.0 << " ";
+            outfile << "N: " << n << " | Dim: 3 | Avg Wt: " << total_weight/5.0 << " | Avg Time: " << time/5.0 << endl;
             break;
         case 4:
             for (int i = 0; i < num_trials; i++) {
+                auto start = std::chrono::high_resolution_clock::now();
                 Graph graph = generate_graph_2(n, 4);
+                auto stop = std::chrono::high_resolution_clock::now();
+                auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+                time += duration.count();
                 total_weight += kruskal_mst_weight(graph);
                 cout << " Summed Weight: " << total_weight << " " << endl;
             }
             cout << " Average Weight: " << total_weight/5.0 << " ";
+            outfile << "N: " << n << " | Dim: 4 | Avg Wt: " << total_weight/5.0 << " | Avg Time: " << time/5.0 << endl;
             break;
         default:
             std::cerr << "dimension must be 0, 2, 3, or 4." << endl;
             break;
     }
+    outfile.close();
 
     return 0;
 }
