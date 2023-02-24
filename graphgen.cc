@@ -222,32 +222,24 @@ bool edge_compare(const Edge& e1, const Edge& e2) {
 }
 
 double kruskal_mst_weight(Graph& graph) {
-    // Sort edges in increasing order of weight
     std::sort(graph.edges.begin(), graph.edges.end(), edge_compare);
-
-    // Create disjoint sets for all vertices
     UnionFind uf(graph.vertices.size());
 
     double total_weight = 0.0;
     int num_edges_in_mst = 0;
 
-    // Iterate through edges in increasing order of weight
     for (const auto& edge : graph.edges) {
         int u = edge.u;
         int v = edge.v;
         double weight = edge.weight;
 
-        // Check if adding this edge creates a cycle
         if (!uf.connected(u, v)) {
-            // Add edge to MST
             uf.union_sets(u, v);
             total_weight += weight;
             num_edges_in_mst++;
         }
 
-        // Stop once we have added V-1 edges to the MST
         if (num_edges_in_mst == graph.vertices.size() - 1) {
-            // Check if the MST is connected
             bool is_connected = true;
             for (int i = 1; i < graph.vertices.size(); i++) {
                 if (!uf.connected(0, i)) {
@@ -258,20 +250,15 @@ double kruskal_mst_weight(Graph& graph) {
             if (is_connected) {
                 return total_weight;
             } else {
-                // MST is not connected, return an error value
                 return -1;
             }
         }
     }
-
-    // If we get here, the MST is not complete
     return -1;
 }
 
 
 int main(int argc, char* argv[]) {
-    // seed for random gen.
-    srand(time(NULL));
     int flag = atoi(argv[1]);
     long long n = atoi(argv[2]);
     int num_trials = atoi(argv[3]);
