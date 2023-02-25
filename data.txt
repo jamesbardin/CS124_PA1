@@ -1,0 +1,55 @@
+
+N: 128 | Dim: 0 | Avg Wt: 1.5324 | Avg Time: 3841.8
+N: 256 | Dim: 0 | Avg Wt: 3.1005 | Avg Time: 5127
+N: 512 | Dim: 0 | Avg Wt: 6.22853 | Avg Time: 9418.4
+N: 1024 | Dim: 0 | Avg Wt: 12.2462 | Avg Time: 12508.4
+N: 2048 | Dim: 0 | Avg Wt: 25.6035 | Avg Time: 27119
+N: 4096 | Dim: 0 | Avg Wt: 49.4419 | Avg Time: 45301.6
+N: 8192 | Dim: 0 | Avg Wt: 99.0856 | Avg Time: 104135
+N: 16384 | Dim: 0 | Avg Wt: 200.129 | Avg Time: 213203
+N: 32786 | Dim: 0 | Avg Wt: 482.26 | Avg Time: 421429
+N: 65536 | Dim: 0 | Avg Wt: 1093.77 | Avg Time: 859748
+N: 131072 | Dim: 0 | Avg Wt: 2363.08 | Avg Time: 1.73539e+06
+N: 262144 | Dim: 0 | Avg Wt: 4913.89 | Avg Time: 3.48965e+06
+
+
+N: 128 | Dim: 2 | Avg Wt: 7.3779 | Avg Time: 4213.4
+N: 256 | Dim: 2 | Avg Wt: 9.8227 | Avg Time: 5591
+N: 512 | Dim: 2 | Avg Wt: 13.0356 | Avg Time: 12088
+N: 1024 | Dim: 2 | Avg Wt: 18.5985 | Avg Time: 33488.6
+N: 2048 | Dim: 2 | Avg Wt: 24.5285 | Avg Time: 84094.2
+N: 4096 | Dim: 2 | Avg Wt: 34.4922 | Avg Time: 196484
+N: 8192 | Dim: 2 | Avg Wt: 48.5139 | Avg Time: 439421
+N: 16384 | Dim: 2 | Avg Wt: 66.9269 | Avg Time: 964431
+N: 32768 | Dim: 2 | Avg Wt: 93.1865 | Avg Time: 2.18865e+06
+N: 65536 | Dim: 2 | Avg Wt: 129.952 | Avg Time: 4.78389e+06
+N: 131072 | Dim: 2 | Avg Wt: 276.863 | Avg Time: 6.30891e+06
+N: 262144 | Dim: 2 | Avg Wt: 920.655 | Avg Time: 5.1868e+06
+
+
+N: 128 | Dim: 3 | Avg Wt: 16.548 | Avg Time: 4208.6
+N: 256 | Dim: 3 | Avg Wt: 25.2842 | Avg Time: 6136.8
+N: 512 | Dim: 3 | Avg Wt: 39.98 | Avg Time: 14951.4
+N: 1024 | Dim: 3 | Avg Wt: 62.7472 | Avg Time: 46177.6
+N: 2048 | Dim: 3 | Avg Wt: 98.5305 | Avg Time: 124523
+N: 4096 | Dim: 3 | Avg Wt: 153.915 | Avg Time: 315379
+N: 8192 | Dim: 3 | Avg Wt: 243.83 | Avg Time: 760945
+N: 16384 | Dim: 3 | Avg Wt: 384.058 | Avg Time: 1.67313e+06
+N: 32768 | Dim: 3 | Avg Wt: 601.191 | Avg Time: 3.79048e+06
+N: 65536 | Dim: 3 | Avg Wt: 945.595 | Avg Time: 8.2989e+06
+N: 131072 | Dim: 3 | Avg Wt: 1976.51 | Avg Time: 1.0072e+07
+N: 262144 | Dim: 3 | Avg Wt: 5422.19 | Avg Time: 7.24836e+06
+
+
+N: 128 | Dim: 4 | Avg Wt: 17.0384 | Avg Time: 3444.4
+N: 256 | Dim: 4 | Avg Wt: 26.4749 | Avg Time: 4639
+N: 512 | Dim: 4 | Avg Wt: 39.496 | Avg Time: 9823.4
+N: 1024 | Dim: 4 | Avg Wt: 61.784 | Avg Time: 27272.4
+N: 2048 | Dim: 4 | Avg Wt: 97.1579 | Avg Time: 73547.6
+N: 4096 | Dim: 4 | Avg Wt: 153.136 | Avg Time: 193881
+N: 8192 | Dim: 4 | Avg Wt: 241.366 | Avg Time: 496740
+N: 16384 | Dim: 4 | Avg Wt: 382.401 | Avg Time: 1.30694e+06
+N: 32768 | Dim: 4 | Avg Wt: 599.464 | Avg Time: 3.48855e+06
+N: 65536 | Dim: 4 | Avg Wt: 953.129 | Avg Time: 8.81727e+06
+N: 131072 | Dim: 4 | Avg Wt: 1986.54 | Avg Time: 1.14504e+07
+N: 262144 | Dim: 4 | Avg Wt: 5391.68 | Avg Time: 8.94683e+06
